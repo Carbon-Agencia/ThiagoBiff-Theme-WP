@@ -2,7 +2,7 @@
     <div class="wrapper">
       <div class="col-a">
         <a class="logo" onclick="closeMenu()" href="#home">
-          <img src="assets/logos/Thiago-Biff-Logo.png" alt="Thiago Biff Arquitetura logo" style="width: 30rem;">
+          <img src="<?php echo get_template_directory_uri();?>/assets/logos/Thiago-Biff-Logo.png" alt="Thiago Biff Arquitetura logo" style="width: 30rem;">
         </a>
       </div>
       <div class="col-b">
@@ -52,9 +52,9 @@
         fill="white" />
     </svg></a>
   <!-- Scroll Reveal Lib -->
-  <script src="<?php echo get_template_directory_uri();?>api/Glider.js-master/glider.min.js"></script>
-  <script src="<?php echo get_template_directory_uri();?>https://unpkg.com/scrollreveal"></script>
-  <script src="<?php echo get_template_directory_uri();?>./main.js"></script> -->
+  <script src="<?php echo get_template_directory_uri();?>/api/Glider.js-master/glider.min.js"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="<?php echo get_template_directory_uri();?>/main.js"></script> -->
 </body>
 
 </html>

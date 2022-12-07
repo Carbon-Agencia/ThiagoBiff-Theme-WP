@@ -5,10 +5,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="api/Glider.js-master/glider.css">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-  <link rel="shortcut icon" href="assets/favicon/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/api/Glider.js-master/glider.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="<?php echo get_template_directory_uri();?>/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="<?php echo get_template_directory_uri();?>/assets/favicon/favicon-16x16.png">
+  <link rel="shortcut icon" href="<?php echo get_template_directory_uri();?>/assets/favicon/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/style.css">
   <title>Thiago Biff</title>
 </head>
@@ -16,7 +16,7 @@
   <nav id="navigation">
     <div class="wrapper">
       <a class="logo" onclick="closeMenu()" href="#home">
-        <img src="assets/logos/Thiago-Biff-Logo.png" alt="Thiago Biff Logo">
+        <img src="<?php echo get_template_directory_uri();?>/assets/logos/Thiago-Biff-Logo.png" alt="Thiago Biff Logo">
       </a>
       <div class="menu">
         <ul class="nav-sections">

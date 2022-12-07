@@ -11,12 +11,12 @@
         </div>
         <div class="glider-contain">
           <div class="glider-home">
-            <div><img src="assets/backgrounds/spacejoy-PyeXkOVmG1Y-unsplash.jpg" alt="light home background image">
+            <div><img src="<?php echo get_template_directory_uri();?>/assets/backgrounds/spacejoy-PyeXkOVmG1Y-unsplash.jpg" alt="light home background image">
             </div>
-            <div><img src="assets/backgrounds/spacejoy-x3mSC1WnWhc-unsplash.jpg" alt="home room background image"></div>
-            <div><img src="assets/backgrounds/spacejoy-PyeXkOVmG1Y-unsplash.jpg" alt="home design background image">
+            <div><img src="<?php echo get_template_directory_uri();?>/assets/backgrounds/spacejoy-x3mSC1WnWhc-unsplash.jpg" alt="home room background image"></div>
+            <div><img src="<?php echo get_template_directory_uri();?>/assets/backgrounds/spacejoy-PyeXkOVmG1Y-unsplash.jpg" alt="home design background image">
             </div>
-            <div><img src="assets/backgrounds/spacejoy-x3mSC1WnWhc-unsplash.jpg" alt="red house background image"></div>
+            <div><img src="<?php echo get_template_directory_uri();?>/assets/backgrounds/spacejoy-x3mSC1WnWhc-unsplash.jpg" alt="red house background image"></div>
           </div>
           <button aria-label="Previous" class="glider-prev"></button>
           <button aria-label="Next" class="glider-next"></button>
@@ -49,11 +49,11 @@
         </header>
       </div>
       <div class="col-b">
-        <img src="assets/backgrounds/hutomo-abrianto-X5BWooeO4Cw-unsplash.jpg" alt="">
+        <img src="<?php echo get_template_directory_uri();?>/assets/backgrounds/hutomo-abrianto-X5BWooeO4Cw-unsplash.jpg" alt="">
         <!-- <img class="sqr-design" src="assets/backgrounds/square-design.png" alt=""> -->
       </div>
       <div class="col-c">
-        <img src="assets/backgrounds/spacejoy-x3mSC1WnWhc-unsplash.jpg" alt="">
+        <img src="<?php echo get_template_directory_uri();?>/assets/backgrounds/spacejoy-x3mSC1WnWhc-unsplash.jpg" alt="">
       </div>
     </div>
   </section>
@@ -62,7 +62,7 @@
       <header class="col-d">
         <h2>O que<span>fazemos</span></h2>
       </header>
-      <div class="col col-a"><img src="assets/backgrounds/hutomo-abrianto-X5BWooeO4Cw-unsplash.jpg" alt="">
+      <div class="col col-a"><img src="<?php echo get_template_directory_uri();?>/assets/backgrounds/hutomo-abrianto-X5BWooeO4Cw-unsplash.jpg" alt="">
         <div class="descriptions">
           <h3>Gerenciamento <br> de obras</h3>
           <p>Já imaginou o tão sonhado dia ser perfeito, tudo exatamente como você sempre planejou? Nossa equipe com
@@ -71,7 +71,7 @@
             tudo seja perfeito</p>
         </div>
       </div>
-      <div class="col col-b"><img src="assets/backgrounds/hutomo-abrianto-9mPl0Zo7_gQ-unsplash.jpg" alt="">
+      <div class="col col-b"><img src="<?php echo get_template_directory_uri();?>/assets/backgrounds/hutomo-abrianto-9mPl0Zo7_gQ-unsplash.jpg" alt="">
         <div class="descriptions">
           <h3>Gerenciamento <br> de obras</h3>
           <p>Já imaginou o tão sonhado dia ser perfeito, tudo exatamente como você sempre planejou? Nossa equipe com
@@ -80,7 +80,7 @@
             tudo seja perfeito</p>
         </div>
       </div>
-      <div class="col col-c"><img src="assets/backgrounds/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="">
+      <div class="col col-c"><img src="<?php echo get_template_directory_uri();?>/assets/backgrounds/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="">
         <div class="descriptions">
           <h3>Gerenciamento <br> de obras</h3>
           <p>Já imaginou o tão sonhado dia ser perfeito, tudo exatamente como você sempre planejou? Nossa equipe com
@@ -104,19 +104,19 @@
       </header>
       <div class="gallery-container">
         <div class="gallery-col">
-          <div class="gallery-items col"><img src="assets/backgrounds/hutomo-abrianto-X5BWooeO4Cw-unsplash.jpg" alt=""><p>Residencial - DB <br> Maracajá / SC</p></div>
-          <div class="gallery-items col"><img src="assets/backgrounds/hutomo-abrianto-9mPl0Zo7_gQ-unsplash.jpg" alt=""><p>Residencial - DB <br> Maracajá / SC</p></div>
-          <div class="gallery-items col"><img src="assets/backgrounds/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt=""><p>Residencial - DB <br> Maracajá / SC</p></div>
+          <div class="gallery-items col"><img src="<?php echo get_template_directory_uri();?>/assets/backgrounds/hutomo-abrianto-X5BWooeO4Cw-unsplash.jpg" alt=""><p>Residencial - DB <br> Maracajá / SC</p></div>
+          <div class="gallery-items col"><img src="<?php echo get_template_directory_uri();?>/assets/backgrounds/hutomo-abrianto-9mPl0Zo7_gQ-unsplash.jpg" alt=""><p>Residencial - DB <br> Maracajá / SC</p></div>
+          <div class="gallery-items col"><img src="<?php echo get_template_directory_uri();?>/assets/backgrounds/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt=""><p>Residencial - DB <br> Maracajá / SC</p></div>
         </div>
         <div class="gallery-col">
-          <div class="gallery-items col"><img src="assets/backgrounds/hutomo-abrianto-X5BWooeO4Cw-unsplash.jpg" alt=""><p>Residencial - DB <br> Maracajá / SC</p></div>
-          <div class="gallery-items col"><img src="assets/backgrounds/hutomo-abrianto-9mPl0Zo7_gQ-unsplash.jpg" alt=""><p>Residencial - DB <br> Maracajá / SC</p></div>
-          <div class="gallery-items col"><img src="assets/backgrounds/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt=""><p>Residencial - DB <br> Maracajá / SC</p></div>
+          <div class="gallery-items col"><img src="<?php echo get_template_directory_uri();?>/assets/backgrounds/hutomo-abrianto-X5BWooeO4Cw-unsplash.jpg" alt=""><p>Residencial - DB <br> Maracajá / SC</p></div>
+          <div class="gallery-items col"><img src="<?php echo get_template_directory_uri();?>/assets/backgrounds/hutomo-abrianto-9mPl0Zo7_gQ-unsplash.jpg" alt=""><p>Residencial - DB <br> Maracajá / SC</p></div>
+          <div class="gallery-items col"><img src="<?php echo get_template_directory_uri();?>/assets/backgrounds/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt=""><p>Residencial - DB <br> Maracajá / SC</p></div>
         </div>
         <div class="gallery-col">
-          <div class="gallery-items col"><img src="assets/backgrounds/hutomo-abrianto-X5BWooeO4Cw-unsplash.jpg" alt=""><p>Residencial - DB <br> Maracajá / SC</p></div>
-          <div class="gallery-items col"><img src="assets/backgrounds/hutomo-abrianto-9mPl0Zo7_gQ-unsplash.jpg" alt=""><p>Residencial - DB <br> Maracajá / SC</p></div>
-          <div class="gallery-items col"><img src="assets/backgrounds/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt=""><p>Residencial - DB <br> Maracajá / SC</p></div>
+          <div class="gallery-items col"><img src="<?php echo get_template_directory_uri();?>/assets/backgrounds/hutomo-abrianto-X5BWooeO4Cw-unsplash.jpg" alt=""><p>Residencial - DB <br> Maracajá / SC</p></div>
+          <div class="gallery-items col"><img src="<?php echo get_template_directory_uri();?>/assets/backgrounds/hutomo-abrianto-9mPl0Zo7_gQ-unsplash.jpg" alt=""><p>Residencial - DB <br> Maracajá / SC</p></div>
+          <div class="gallery-items col"><img src="<?php echo get_template_directory_uri();?>/assets/backgrounds/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt=""><p>Residencial - DB <br> Maracajá / SC</p></div>
         </div>
       </div>
   </section>
