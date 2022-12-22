@@ -66,7 +66,7 @@ onScroll()
 
 function onScroll() {
   showNavOnScroll()
-  showBackToTopButtonOnScroll()
+//   showBackToTopButtonOnScroll()
 
   activateMenuAtCurrentSection(home)
   activateMenuAtCurrentSection(services)
@@ -110,13 +110,13 @@ function showNavOnScroll() {
   }
 }
 
-function showBackToTopButtonOnScroll() {
-  if (scrollY > 1400) {
-     backToTopButton.classList.add('show')
-  } else {
-     backToTopButton.classList.remove('show')
-  }
-}
+// function showBackToTopButtonOnScroll() {
+//   if (scrollY > 1400) {
+//      backToTopButton.classList.add('show')
+//   } else {
+//      backToTopButton.classList.remove('show')
+//   }
+// }
 
 function openMenu() {
   document.body.classList.add('menu-expanded')

@@ -44,7 +44,6 @@
       </div>
     </div>
   </footer>
-
   <a id="wppButton" href="https://wa.me/554899996765" target="_blank">
     <svg class="wpp-logo" width="50" height="50" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
@@ -54,7 +53,6 @@
   <!-- Scroll Reveal Lib -->
   <script src="<?php echo get_template_directory_uri();?>/api/Glider.js-master/glider.min.js"></script>
   <script src="https://unpkg.com/scrollreveal"></script>
-  <script src="<?php echo get_template_directory_uri();?>/main.js"></script> -->
+  <script src="<?php echo get_template_directory_uri();?>/main.js"></script>
 </body>
-
 </html>
