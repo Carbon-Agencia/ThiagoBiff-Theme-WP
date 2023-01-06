@@ -9,9 +9,12 @@
   <link rel="icon" type="image/png" sizes="32x32" href="<?php echo get_template_directory_uri();?>/assets/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="<?php echo get_template_directory_uri();?>/assets/favicon/favicon-16x16.png">
   <link rel="shortcut icon" href="<?php echo get_template_directory_uri();?>/assets/favicon/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/style.css">
+  <link rel="stylesheet" href="<?php echo get_template_directory_uri();?>./style.css">
+  <link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/api/OwlCarousel2-2.3.4/docs/assets/owlcarousel/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/api/OwlCarousel2-2.3.4/docs/assets/owlcarousel/assets/owl.theme.default.min.css">
   <title>Thiago Biff</title>
 </head>
+
 <body>
   <nav id="navigation">
     <div class="wrapper">
@@ -23,8 +26,9 @@
           <li><a class="active" onclick="closeMenu()" href="#home">Início</a></li>
           <li><a onclick="closeMenu()" href="#about">Sobre nós</a></li>
           <li><a onclick="closeMenu()" href="#what">O que fazemos</a></li>
-          <li><a onclick="closeMenu()" href="#about">Portfólio</a></li>
+          <li><a onclick="closeMenu()" href="#portfolio">Portfólio</a></li>
         </ul>
+        <a class="button" onclick="closeMenu()" href="https://wa.me/5548999996765" target="_blank">Entre em contato</a>
         <ul class="social-links">
           <li><a href="https://www.facebook.com/thiagobiffarq" target="_blank">
               <svg fill="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="24px" height="24px">

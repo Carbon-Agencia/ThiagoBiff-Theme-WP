@@ -48,6 +48,12 @@ define( 'DB_COLLATE', '' );
  *
  * @since 2.6.0
  */
+
+/** Absolute path to the WordPress directory. */
+// if ( !defined('ABSPATH') )
+// define('ABSPATH', dirname(__FILE__) . '/');
+// define('CONCATENATE_SCRIPTS', false);
+
 define( 'AUTH_KEY',         ')KO!`#r!CX]o,MDW&{T&!Fu~%Lw{xi,jp8%WWW0N!|3 q)se$o$Ke(WF$/dbEze&' );
 define( 'SECURE_AUTH_KEY',  'LE5Bh9-,8k#$-~#VfbFNKv+HV8N#512>18qNxbt7a:qw/v~_W<z{[MIO@ o?xdJ-' );
 define( 'LOGGED_IN_KEY',    ':2,kgs8G!:mL9n>IC0%rbPyjv!w$97%h.*KiM4yS<.m1Yh$TY9ZSV5/bztB&YLQr' );
