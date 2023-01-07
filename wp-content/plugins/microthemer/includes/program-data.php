@@ -616,10 +616,11 @@ $this->default_preferences = array(
 	"hover_inspect_off_initially" => 0,
 	"scroll_to_elements" => 1, // scroll to out of view elements in reposition_overlays
 	"allow_scss" => 0, // if enabled by default, invalid css/scss will prevent stylesheet update.
+	"sync_browser_tabs" => 0,
 	"server_scss" => 0, // give user option to compile scss on the server
 	"specificity_preference" => 1, // 1 = high, 0 = low
 	"wp55_jquery_version" => 0,
-	"bricks_container_hack" => 1,
+	"bricks_container_hack" => 0, // no longer necessary since Bricks 1.4
 	"remove_all_bricks_container_hacks" => 0,
 	"custom-prefix-extraValue" => '',
 	"recent_custom_prefixes" => array(),
@@ -1321,6 +1322,17 @@ $this->menu = array(
 
 		'name' => esc_html__('Integrations', 'microthemer'),
 		'sub' => array(
+
+			'sync_browser_tabs' => array(
+				//'icon_title' => '',
+				'name' => esc_html__('Sync browser tabs', 'microthemer'),
+				'title' => esc_attr__("Auto-refresh Microthemer CSS in other browser tabs", 'microthemer'),
+				'class' => 'sync-browser-tabs',
+				'toggle' => !empty($this->preferences['sync_browser_tabs']),
+				'data-pos' => esc_attr__('Enable synced browser tabs', 'microthemer'),
+				'data-neg' => esc_attr__('Disable synced browser tabs', 'microthemer'),
+			),
+
 
 			// autoload feature should only autoload if the page has already been edited
 			// set an option on preferences "Only autoload builder if previously launched manually" : "Yes"

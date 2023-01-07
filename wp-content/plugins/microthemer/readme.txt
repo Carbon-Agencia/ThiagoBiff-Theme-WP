@@ -4,7 +4,7 @@ Contributors: bastywebb, joseluiscruz, ahrale
 Donate link: http://themeover.com/microthemer/
 Tags: css, customize, visual editor, google fonts, responsive
 Requires at least: 3.6
-Tested up to: 6.0
+Tested up to: 6.1
 Requires PHP: 5.6
 Stable tag: trunk
 License: GPLv2 or later
@@ -78,6 +78,39 @@ I've been happily developing Microthemer and supporting users of varying technic
 5. Start customizing the appearance of your site.
 
 == Changelog ==
+
+= 7.1.6.4 (Dec 15th, 2022) =
+
+# Bugs fixed
+* Styles did not display outside of MT for logged in administrators if the auto-publish feature was enabled.
+
+= 7.1.6.3 (Dec 2nd, 2022) =
+
+# Enhancement
+* Added shallow integration with Thrive Architect.
+
+# Bugs fixed
+* The history table font-size and color was off when upgrading to WordPress 6.1.
+* Possible PHP warning:  Uninitialized string offset, class-json.php on line 356.
+
+= 7.1.6.2 (November 29th, 2022) =
+
+# Enhancement
+* Added shallow integration with Breakdance and OptimizePress.
+* New keyboard shortcut added for beautifying CSS in the code editor: Crtl + Alt + O (the letter O).
+
+= 7.1.6.1 (November 24th, 2022) =
+
+# Enhancement
+* Microthemer supports "shallow" integration with five more page builders including Divi, Bricks, Brizy, Zion, and WP Page Builder. This means that Microthemer will auto-reload its CSS in other browser tabs, and reload the site preview if you publish or save draft changes in one of the aforementioned builders. To enable this feature, go to Settings > Integrations > Sync browser tabs.
+
+= 7.1.6.0 (November 22nd, 2022) =
+
+# Enhancement
+* Performance improvement when selecting elements. Selection was exceptionally slow when the Query Monitor Plugin was active, because it adds lots of HTML to the page, but the fix for QM should speed selection up in general, especially for page builders. Note, Query Monitor still slows MT even with this update, so try not to leave it active. It's only meant for temporary performance debugging anyway.
+
+# Bugs fixed
+* Error when loading a builder. Uncaught TypeError: Failed to execute 'getComputedStyle' on 'Window': parameter 1 is not of type 'Element'.
 
 = 7.1.5.9 (November 1st, 2022) =
 

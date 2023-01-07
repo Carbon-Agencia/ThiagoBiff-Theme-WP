@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="<?php echo get_template_directory_uri();?>./style.css">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/api/OwlCarousel2-2.3.4/docs/assets/owlcarousel/assets/owl.carousel.min.css">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/api/OwlCarousel2-2.3.4/docs/assets/owlcarousel/assets/owl.theme.default.min.css">
-  <title>Thiago Biff</title>
+  <title><?php bloginfo( 'Thiago Biff' ); ?></title>
 </head>
 
 <body>

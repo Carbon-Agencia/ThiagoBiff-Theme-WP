@@ -5,7 +5,7 @@ Plugin URI: https://themeover.com/microthemer
 Text Domain: microthemer
 Domain Path: /languages
 Description: Microthemer is a feature-rich visual design plugin for customizing the appearance of ANY WordPress Theme or Plugin Content (e.g. posts, pages, contact forms, headers, footers, sidebars) down to the smallest detail. For CSS coders, Microthemer is a proficiency tool that allows them to rapidly restyle a WordPress theme or plugin. For non-coders, Microthemer's intuitive point and click editing opens the door to advanced theme and plugin customization.
-Version: 7.1.5.9
+Version: 7.1.6.4
 Author: Themeover
 Author URI: https://themeover.com
 */
@@ -321,7 +321,7 @@ if ( is_admin() ) {
 		// define
 		class tvr_microthemer_admin {
 
-			var $version = '7.1.5.9';
+			var $version = '7.1.6.4';
 			var $db_chg_in_ver = '7.0.5.0';
 
 			var $locale = ''; // current language
@@ -2152,6 +2152,7 @@ if ( is_admin() ) {
 
 						// page specific (non-min)
 						array('h' => 'tvr_main_ui', 'f' => 'page/microthemer.js', 'page' => array($this->microthemeruipage)),
+						array('h' => 'tvr_broadcast', 'f' => 'mod/mt-broadcast.js', 'page' => array($this->microthemeruipage)),
 						array('h' => 'tvr_man', 'f' => 'page/packs.js', 'page' => 'other'),
 						array('h' => 'tvr_fonts', 'f' => 'page/fonts.js', 'page' => array($this->fontspage)),
 						array('h' => 'tvr_detached', 'f' => 'page/detached-preview.js', 'page' => array($this->detachedpreviewpage)),
@@ -2171,6 +2172,7 @@ if ( is_admin() ) {
 						array('h' => 'tvr_mcth_cssprops', 'f' => '../js-min/program-data.js', 'min' => 1,
 						      'skipScript' => !empty($this->preferences['inlineJsProgData']) ),
 						array('h' => 'tvr_main_ui', 'f' => '../js-min/microthemer.js', 'min' => 1, 'page' => array($this->microthemeruipage)),
+						array('h' => 'tvr_broadcast', 'f' => '../js-min/mt-broadcast.js', 'min' => 1, 'page' => array($this->microthemeruipage)),
 						array('h' => 'tvr_man', 'f' => '../js-min/packs.js', 'min' => 1, 'page' => 'other'),
 						array('h' => 'tvr_fonts', 'f' => '../js-min/fonts.js', 'min' => 1, 'page' => array($this->fontspage)),
 						array('h' => 'tvr_detached', 'f' => '../js-min/detached-preview.js', 'min' => 1, 'page' => array($this->detachedpreviewpage)),
@@ -4779,8 +4781,7 @@ if ( is_admin() ) {
 			function json_format_ua($icon, $item, $val = false){
 				$json = '{"items":["'.$item.'"],"val":"'.$val.'","icon":"'.$icon.'","main_class":"",';
 				$json.= '"icon_html":"<span class=\"h-i no-click '.$icon.'\" ></span>",';
-				$json.= '"html":"<span class=\"history-item history_'.$this->to_param($item).'\">
-				<span class=\"his-items\"><span>'.$item.'</span></span>';
+				$json.= '"html":"<span class=\"history-item history_'.$this->to_param($item).'\"><span class=\"his-items\"><span>'.$item.'</span></span>';
 				if ($val){
 					//$json.= '<span class=\"his-val\">'.htmlentities($val).'</span>'; // escHistory
 					$json.= '<span class=\"his-val\">'.$val.'</span>';
@@ -5007,11 +5008,25 @@ if ( is_admin() ) {
 					$rev_icon = $main_class = '';
 					$legacy_new_class = 'legacy-hi';
 
+					/*if ($user_action){
+						wp_die('string chars', json_encode($user_action));
+					}*/
+
+					// fix a bug with line-breaks getting into the history json, making it invalid
+                    if (preg_match("/[\n\r]+\t+/", $user_action)){
+	                    $user_action = preg_replace("/[\n\r]+\t+/", '', $user_action);
+                    }
+
 					// (escHistory)
-					//wp_die('history rev <pre>' . print_r($user_action, true) . '</pre>');
+					//wp_die('history rev <pre>' . print_r($this->json('decode', $rev->user_action), true) . '</pre>');
+					//wp_die('history rev <pre>' . print_r(json_decode($rev->user_action, true), true) . '</pre>');
+					//$this->log('user action', $rev->user_action, 'warning', false);
 
 					if (strpos($user_action, '{"') !== false){
-						$ua = $this->json('decode', $rev->user_action); //  json_decode($rev->user_action, true);
+
+						//wp_die('history rev <pre>' . print_r(json_decode($rev->user_action, true), true) . '</pre>');
+
+						$ua = $this->json('decode', $user_action); //  json_decode($rev->user_action, true);
 
 						//wp_die('history rev <pre>' . print_r($ua, true) . '</pre>');
 
@@ -6454,6 +6469,14 @@ if ( is_admin() ) {
 					if (isset($_GET['mt_dark_mode'])) {
 						$pref_array = array();
 						$pref_array['mt_dark_mode'] = intval($_GET['mt_dark_mode']);
+						$this->savePreferences($pref_array);
+						wp_die();
+					}
+
+					// dark theme
+					if (isset($_GET['sync_browser_tabs'])) {
+						$pref_array = array();
+						$pref_array['sync_browser_tabs'] = intval($_GET['sync_browser_tabs']);
 						$this->savePreferences($pref_array);
 						wp_die();
 					}
@@ -9680,6 +9703,10 @@ if ( is_admin() ) {
 						'win' => 'Ctrl+Alt+N',
 					),
 					array(
+						'action' => 'Beautify code editor CSS',
+						'win' => 'Ctrl+Alt+O',
+					),
+					array(
 						'action' => 'Do full Sass compile', // If Sass is enabled, recompiles all MT selectors
 						'win' => 'Ctrl+Alt+P',
 					),
@@ -12192,6 +12219,13 @@ if ( is_admin() ) {
 				// write all necessary files
 				foreach ($css_files as $key => $file){
 					$this->write_file($this->micro_root_dir . $file['name'], $file['data']);
+
+                    // if auto-publish is on we also need to update draft-styles.css so that
+                    // the administrator also sees the latest changes even outside of Microthemer
+                    // draft-styles always displays for the administrator
+                    if (!empty($this->preferences['auto_publish_mode'])){
+	                    $this->write_file($this->micro_root_dir . 'draft-styles.css', $file['data']);
+                    }
 				}
 
 				// write to the ie specific stylesheets if user defined
@@ -12449,6 +12483,10 @@ if ( is_admin() ) {
 					}
 				}*/
 
+                $active_enq_js = !empty($filtered_json['non_section']['active_enq_js'])
+                    ? $filtered_json['non_section']['active_enq_js']
+                    : false;
+
 				// compare media queries in import/restore to existing
 				$mq_analysis = $this->analyse_mqs(
 					$filtered_json['non_section']['active_queries'],
@@ -12458,11 +12496,11 @@ if ( is_admin() ) {
 				// check if enq_js needs to be added
 				if ($this->new_enq_js(
 					$this->preferences['enq_js'],
-					$filtered_json['non_section']['active_enq_js']
+					$active_enq_js
 				)){
 					$pref_array['enq_js'] = array_merge(
 						$this->preferences['enq_js'],
-						$filtered_json['non_section']['active_enq_js']
+						$active_enq_js
 					);
 					if ($this->savePreferences($pref_array)) {
 						$this->log(
@@ -12776,9 +12814,11 @@ if ( is_admin() ) {
 
 			// add js deps in import if not
 			function new_enq_js($cur_enq_js, $imp_enq_js){
-				foreach ($imp_enq_js as $k => $arr){
-					if (empty($cur_enq_js[$k])) return true;
-				}
+			    if ($imp_enq_js && is_array($imp_enq_js)){
+				    foreach ($imp_enq_js as $k => $arr){
+					    if (empty($cur_enq_js[$k])) return true;
+				    }
+			    }
 				return false;
 			}
 
@@ -13284,6 +13324,8 @@ if ( is_admin() ) {
 
 					// if we can't decode using native PHP function
 					if (!$json_array = json_decode($data, true)) {
+
+						//wp_die('$json_array failed: <pre>' . $data . '</pre>');
 
 						// MT may be trying to decode data encoded by an older custom JSON class, rather than PHP native
 						// so attempt to decode using legacy class
@@ -14552,7 +14594,7 @@ if (!is_admin()) {
 			var $preferencesName = 'preferences_themer_loader';
 			// @var array $preferences Stores the ui options for this plugin
 			var $preferences = array();
-			var $version = '7.1.5.9';
+			var $version = '7.1.6.4';
 			var $microthemeruipage = 'tvr-microthemer.php';
 			var $builderBlockedEdit = false;
 			var $file_stub = '';
@@ -14932,6 +14974,7 @@ if (!is_admin()) {
 
 					global $wp;
 					$post = $this->get_current_post_data();
+					$min = !TVR_DEV_MODE ? '-min' : '/mod';
 
 					$MTDynFrontData = array(
 						'iframe-url' => rawurlencode(
@@ -14944,7 +14987,10 @@ if (!is_admin()) {
 						'mt-show-admin-bar' => intval($this->preferences['admin_bar_preview']),
 						'page-title' => $post['post_title'],
 						'page-id' => $post['post_id'],
-                        'builderBlockedEdit' => $this->builderBlockedEdit
+                        'builderBlockedEdit' => $this->builderBlockedEdit,
+						'broadcast' => !empty($this->preferences['sync_browser_tabs'])
+                            ? $this->thispluginurl . 'js'.$min.'/mt-broadcast.js?v='.$this->version
+                            : false
 					);
 
 					// get Oxygen page width

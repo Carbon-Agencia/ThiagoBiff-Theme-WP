@@ -1,6 +1,18 @@
 <?php get_header(); ?>
 
   <!--HOME-->
+  <?php
+    if(have_posts()){
+
+      while( have_posts ){
+
+        the_post();
+        the_content();
+      }
+
+    }
+  ?>
+
   <section id="home">
     <div class="wrapper" id="homeToScroll">
       <div class="column-left"></div>
@@ -28,7 +40,7 @@
     <div class="wrapper">
       <div class="col-a">
         <header>
-          <h1>Sobre Nós</h1>
+          <h1><?php the_title(); ?>Sobre Nós</h1>
           <p>Buscando a realização de nosso Sonho, assim nasceu a THIAGO BIFF. De um Sonho
             para a realização do seu Sonho. Uma empresa que busca o exclusivo, do clássico ao
             moderno, produzindo requinte, modernidade e luxo a tudo que arquitetura pode
